@@ -7,11 +7,19 @@ import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/*
+ * Ye class Feign Client ki configuration ke liye hai.
+ */
 @Configuration
 public class FeignConfig {
 
 	@Bean
 	public Encoder feignFormEncoder() {
-		return new SpringFormEncoder(new SpringEncoder(() -> new HttpMessageConverters()));
+
+		return new SpringFormEncoder(
+				new SpringEncoder(
+						() -> new HttpMessageConverters()
+				)
+		);
 	}
 }
